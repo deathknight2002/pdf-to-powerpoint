@@ -29,19 +29,19 @@ for i, slideimg in enumerate(slideimgs):
 	if i % 10 == 0:
 		print("Saving slide: " + str(i))
 
-	imagefile = BytesIO()
-	slideimg.save(imagefile, format='tiff')
-	imagedata = imagefile.getvalue()
-	imagefile.seek(0)
-	width, height = slideimg.size
+	with BytesIO() as imagefile:
+		slideimg.save(imagefile, format='tiff')
+		imagefile.seek(0)
+		width, height = slideimg.size
 
-	# Set slide dimensions
-	prs.slide_height = height * 9525
-	prs.slide_width = width * 9525
+		# Set slide dimensions (only on first iteration)
+		if i == 0:
+			prs.slide_height = height * 9525
+			prs.slide_width = width * 9525
 
-	# Add slide
-	slide = prs.slides.add_slide(blank_slide_layout)
-	pic = slide.shapes.add_picture(imagefile, 0, 0, width=width * 9525, height=height * 9525)
+		# Add slide
+		slide = prs.slides.add_slide(blank_slide_layout)
+		pic = slide.shapes.add_picture(imagefile, 0, 0, width=width * 9525, height=height * 9525)
 
 # Save Powerpoint
 print()
