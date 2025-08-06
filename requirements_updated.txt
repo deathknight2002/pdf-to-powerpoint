@@ -1,0 +1,24 @@
+# Updated dependencies with modern versions and security patches
+# Original requirements.txt had severely outdated packages from 2018
+
+# Core PDF processing
+pdf2image>=1.16.0,<2.0.0
+
+# Image processing
+Pillow>=10.0.0,<11.0.0
+
+# PowerPoint generation
+python-pptx>=0.6.21,<0.7.0
+
+# XML processing (used by python-pptx)
+lxml>=4.9.0,<5.0.0
+
+# Development and testing dependencies
+pytest>=7.0.0,<8.0.0
+pytest-cov>=4.0.0,<5.0.0
+
+# Optional: For creating test PDFs
+reportlab>=4.0.0,<5.0.0
+
+# Optional: For better progress bars
+tqdm>=4.64.0,<5.0.0

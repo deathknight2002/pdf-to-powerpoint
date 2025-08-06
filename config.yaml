@@ -1,0 +1,25 @@
+
+image:
+  dpi: 300                    # Resolution for PDF to image conversion
+  format: "png"               # Image format: png, jpeg, tiff
+  quality: 95                 # JPEG quality (1-100, only for JPEG format)
+
+performance:
+  thread_count: 2             # Number of threads for PDF conversion
+  progress_interval: 10       # Show progress every N slides
+  max_memory_mb: 1024         # Maximum memory usage in MB (warning threshold)
+
+output:
+  auto_open: false            # Automatically open the PowerPoint file after conversion
+  backup_existing: true       # Create backup if output file already exists
+  compression: true           # Enable PowerPoint compression
+
+logging:
+  level: "INFO"               # DEBUG, INFO, WARNING, ERROR
+  file: null                  # Log file path (null = console only)
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+
+advanced:
+  temp_dir: null              # Custom temporary directory (null = system default)
+  cleanup_temp: true          # Clean up temporary files after conversion
+  validate_output: true       # Verify output file integrity
